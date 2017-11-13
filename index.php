@@ -38,9 +38,24 @@
 			width: 20px;
 			text-align: center;
 			position: relative;
-			left: 112px;
+			left: 22px;
 			bottom: 45px
 		}
+
+	    .dropdown-content{display: none; position: absolute; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 15px;}
+	    .dropdown:hover .dropdown-content {display: block;}
+	    input{text-align: center;}
+	    form{text-align: center;margin-top: 30px;}
+	    /**{font-family: 'Montserrat', cursive;}*/
+	    img{width: 200px;margin-top: 20px;margin: auto;display: block;}
+	    input[type="email"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; border-radius: 3px;}
+	    input[type="password"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; margin-top: 10px;border-radius: 3px;}
+	    input[type="submit"]{margin-top: 20px;}
+	    h2{text-align: center;}
+	    label{margin-top: 20px; }
+	    div#desceu{
+	        border-radius: 2px;
+	    }
 
 	</style>
 
@@ -77,20 +92,41 @@
 
 		<div class="col-sm-1"></div>
 
-		<div class="col-sm-3 desce">
-			<a href="#">
-				<span  style="font-size: 34px" class="glyphicon glyphicon-user"></span>
-			</a>
+		<div class="col-sm-1 desce">
+
+			<div class="dropdown" style="width: 34px">
+
+				<a href="#">
+					<span  style="font-size: 34px" class="glyphicon glyphicon-user"></span>
+				</a>
+
+				<div class="dropdown-content" id="desceu" style="background: url('vialactea.png');">
+	                <h2>Entrar na sua conta</h2>
+	                <form method="post">
+	                    <input type="email" name="email" placeholder="seuemail@dominio.com" required><br>
+	                    <input type="password" name="senha" placeholder="Insira sua senha" required minlength="8"><br>
+	                    <input type="submit" class="btn btn-primary" value="Entrar" name="entrar"><br> 
+	                    <label>Ainda não tem uma conta ? <a href="cadastro.php" style="color:white">Cadastre-se.</a></label>
+	                </form>
+	            </div>
+
+	        </div>
+	    </div>
+
+	    <div class="col-sm-1 desce">
 
 			<a href="#">
-				<span style="margin-left: 50px;font-size: 34px" class="glyphicon glyphicon-shopping-cart"></span>
-			</a>
-
-			<a href="#">
-				<span style="margin-left: 50px;font-size: 34px" class="glyphicon glyphicon-wrench"></span>
+				<span style="font-size: 34px" class="glyphicon glyphicon-shopping-cart"></span>
 			</a>
 
 			<div id="num_itens">0</div>
+		</div>
+
+		<div class="col-sm-1 desce">
+
+			<a href="#">
+				<span style="font-size: 34px" class="glyphicon glyphicon-wrench"></span>
+			</a>
 
 		</div>
 	</div>
