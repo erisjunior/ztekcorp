@@ -1,0 +1,13 @@
+#rowtop{
+	position: fixed;
+	height: 18%;
+}
+
+.top{
+	margin: 20px;
+}
+
+.logo{
+	float: left;
+	width: 200px
+}
