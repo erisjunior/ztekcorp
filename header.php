@@ -81,11 +81,11 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<ul id="ul">
-					<li><a href="#"><img src="MenuIcons/Smartphone.png"></a></li>
-					<li><a href="#"><img src="MenuIcons/Gaming.png"></a></li>
-					<li><a href="#"><img src="MenuIcons/Computadores.png"></a></li>
-					<li><a href="#"><img src="MenuIcons/Gadgets.png"></a></li>
-					<li><a href="#"><img src="MenuIcons/Acessorios.png"></a></li>
+					<a href="#"><li><img src="MenuIcons/Smartphone.png"></li></a>
+					<a href="#"><li><img src="MenuIcons/Gaming.png"></li></a>
+					<a href="#"><li><img src="MenuIcons/Computadores.png"></li></a>
+					<a href="#"><li><img src="MenuIcons/Gadgets.png"></li></a>
+					<a href="#"><li><img src="MenuIcons/Acessorios.png"></li></a>
 				</ul>
 			</div>
 		</div>

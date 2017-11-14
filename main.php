@@ -55,3 +55,5 @@ echo "</div>";
 ?>
 
 </div>
+
+<div style="clear: both;"></div>
