@@ -1,5 +1,5 @@
 <?php
-	include 'slide.php';
+	//include 'slide.php';
 ?>
 
 <div class="container">

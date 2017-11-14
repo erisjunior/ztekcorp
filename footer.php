@@ -1,5 +1,5 @@
-<footer>
-	<div class="row" style="background: url(img/vialactea.png); height: 30px">
+<footer id="footer">
+	<div class="row" style="background: url(img/vialactea.png);">
 
 		<div class="col-sm-12">
 

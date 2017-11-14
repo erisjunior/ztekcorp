@@ -20,11 +20,15 @@
 <?php
 	include 'header.php';
 
-	echo "<div style='width: 100%; height: 10px; background: linear-gradient(to right ,#591111,#350D3F,#122E59)'></div>";
+	include 'menu.php';
+
+	//#350D3F,#122E59,#591111
+	echo "<div style='width: 100%;
+		height: 5px;
+		background: linear-gradient(to right,#350D3F,#122E59,#350D3F);
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);'></div>";
 
 	include 'main.php';
-
-	include 'menu.php';
 
 	if(isset($_POST['pag'])){
 		include $_POST['pag'].'.php';

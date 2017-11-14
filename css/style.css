@@ -45,14 +45,24 @@ div#desceu{
 /*Fim da Parte Superior*/
 
 /*Menu*/
-#ul{
-	width: 100%;
-	display: inline-block
-}
+
 #ul li{
-	width: 20%;
 	display: inline-block;
+	background-color: rgba(0, 0, 0, .4);
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
 }
+
+.con{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
 /* Fim Menu */
 
 /* Slide */
@@ -63,3 +73,14 @@ div#desceu{
 }
 
 /* Fim Slide */
+
+/* Footer */
+
+#footer{
+	position:absolute;
+    bottom:0;
+    width:100%;
+    text-align: center;
+}
+
+/* Fim Footer */
