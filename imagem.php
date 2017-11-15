@@ -13,7 +13,7 @@
 		jQuery(function($){
 			$("#cpff").mask("999.999.999-99");
 			$("#tele").mask("(99) 9.9999-9999");
-			$("#Data").mask("99/99/9999");			
+			$("#Data").mask("99/99/9999");
 		});
 	</script>
 </head>
