@@ -3,7 +3,7 @@
 
 //Verifica se o usuario forneceu os dados corretamente
 if (isset($_POST['entrar'])) {
-	
+
 	$user = $_POST['user'];
 	$pas = $_POST['senha'];
 	$token = md5(microtime());
@@ -65,7 +65,7 @@ if (isset($_POST['entrar'])) {
 			    <div class="input-group desce" style="box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
 		            <input type="text" class="form-control" placeholder="Search...">
 		            <div class="input-group-addon">
-		            	<a><span class="glyphicon glyphicon-search"></span></a>
+		            	<a><span class="fa fa-search"></span></a>
 		            </div>
 		        </div>
 		    </div>
@@ -73,7 +73,7 @@ if (isset($_POST['entrar'])) {
 			<div class="col-sm-1"></div>
 
 			<div class="col-sm-1 desce">
-				
+
 				<?php
 				if(isset($_SESSION['user'])){
 					$logado = $_SESSION['user'];
@@ -88,7 +88,7 @@ if (isset($_POST['entrar'])) {
 							<div class='dropdown' style='width: 34px'>
 
 								<a href='#'>
-									<span  style='font-size: 34px' class='glyphicon glyphicon-user sombra'></span>
+									<span  style='font-size: 44px' class='fa fa-user sombra'></span>
 								</a>
 
 								<div class='dropdown-content' id='desceu' style='background: rgba(39, 43, 48, .8)'>
@@ -108,7 +108,7 @@ if (isset($_POST['entrar'])) {
 							<div class='dropdown' style='width: 34px'>
 
 								<a href='#'>
-									<span  style='font-size: 34px' class='glyphicon glyphicon-user sombra'></span>
+									<span  style='font-size: 44px' class='fa fa-user sombra'></span>
 								</a>
 
 								<div class='dropdown-content' id='desceu' style='background: rgba(39, 43, 48, .8)'>
@@ -136,7 +136,7 @@ if (isset($_POST['entrar'])) {
 		    <div class="col-sm-1 desce">
 
 				<a href="#">
-					<span style="font-size: 34px" class="glyphicon glyphicon-shopping-cart"></span>
+					<span style="font-size: 44px" class="fa fa-shopping-cart"></span>
 				</a>
 
 				<div id="num_itens">0</div>
@@ -145,7 +145,7 @@ if (isset($_POST['entrar'])) {
 			<div class="col-sm-1 desce">
 
 				<a href="admin/">
-					<span style="font-size: 34px" class="glyphicon glyphicon-wrench sombra"></span>
+					<span style="font-size: 44px" class="fa fa-gear sombra"></span>
 				</a>
 
 			</div>
