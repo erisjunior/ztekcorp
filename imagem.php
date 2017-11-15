@@ -33,13 +33,13 @@
 		<input class="form-control" type="text" name="tel" id="tele" minlength="11" required>
 		<label>E-mail:</label>
 		<input class="form-control" type="text" name="email" placeholder="seuemail@email.com" required>
-		<label>Login:</label>
+		<label>Usuário:</label>
 		<input class="form-control" type="text" name="login" placeholder="eusou_vc" required>
 		<label>Senha:</label>
-		<input class="form-control" type="password" name="pass" minlength="10" required><br>
+		<input class="form-control" type="password" name="pass" minlength="8" required><br>
 		<label>Sua Foto:</label>
 		<input class="form-control" type="file" name="file" required><br>
-		<button class="form-control btn btn-primary" type="submit" name="enviar">Cadastrar</button>
+		<input class="form-control btn btn-primary" type="submit" name="enviar" value="Cadastrar">
 		</fieldset>
 	</form>
 	<?php
@@ -88,9 +88,10 @@
 				$query = mysqli_query($con,$sql);
 
 				if ($query) {
-					echo "<script>alert('Usuario Cadastrado')</script>";
+					echo "<script>alert('Usuário Cadastrado com sucesso')</script>";
+					echo '<script> setTimeout(function(){window.location = "index.php";}, 1000);</script>';
 				}else{
-					echo "<script>alert('Usuario não Cadastrado')</script>";
+					echo "<script>alert('Usuario não Cadastrado, tente novamente')</script>";
 				}
 			
 		}else{

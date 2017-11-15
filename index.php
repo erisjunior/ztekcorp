@@ -20,8 +20,6 @@
 <?php
 	include 'header.php';
 
-	include 'menu.php';
-
 	//#350D3F,#122E59,#591111
 	echo "<div style='width: 100%;
 		height: 5px;
