@@ -14,8 +14,14 @@
 			<input class="form-control" type="text" name="nome" placeholder="Nome Produto" required>
 		<label>Preço:</label>
 			<input class="form-control" type="text" name="preco" placeholder="000,00" minlength="4" maxlength="10" required>
-		<label>Imagem do Produto:</label><br>
+		<label>Primeira Imagem do Produto:</label><br>
 			<input class="form-control" type="file" name="file"><br>
+		<label>Segunda Imagem do Produto:</label><br>
+			<input class="form-control" type="file" name="file2"><br>
+		<label>Terceira Imagem do Produto:</label><br>
+			<input class="form-control" type="file" name="file3"><br>
+		<label>Quarta Imagem do Produto:</label><br>
+			<input class="form-control" type="file" name="file4"><br>
 		<label>Categoria do Produto:</label><br>
         	<select class="form-control" name="cat">
 		        <option>Categoria</option>
