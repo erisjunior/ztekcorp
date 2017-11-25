@@ -1,17 +1,30 @@
 <style type="text/css">
 	#titulo{
 		font-size: 18px;
-		font-family: FontAwesome;
+		
 	}
 	#conteudo{
 		font-size: 14px;
-		font-family: FontAwesome;
 		text-align: left;
 	}
 
+	#animate{
+		-webkit-transform: rotateZ(0deg);
+        -ms-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+        transition: 1s;
+	}
+
+	#animate:hover{
+        -webkit-transform: rotateZ(-114deg);
+        -ms-transform: rotateZ(-114deg);
+        transform: rotateZ(-114deg);
+        transition: 1s;
+	}
 
 </style>
 
+<div style="clear: both;"></div>
 <footer id="footer">
 <div class="row" style="background: url(img/vialactea.png);">
 
@@ -40,17 +53,15 @@
 		<div class="col-sm-4">
 
 			<label id="titulo">Informações Adicionais</label>
-
-			<form class="button-gruop"> 
+ 
 				<ul>
-					<input class="btn btn-primary" type="submit" value="youtube">
-					<input class="btn btn-primary" type="submit" value="facebook">
-					<input class="btn btn-primary" type="submit" value="twitter">
-					<input class="btn btn-primary" type="submit" value="Email">
-					<input class="btn btn-primary" type="submit" value="telefone">
-					<input class="btn btn-primary" type="submit" value="Endereço">
+					<a class="btn btn-primary fa fa-youtube"></a>
+					<a class="btn btn-primary fa fa-facebook"></a>
+					<a class="btn btn-primary fa fa-twitter"></a>
+					<a class="btn btn-primary fa fa-envelope"></a>
+					<a class="btn btn-primary fa fa-phone"></a>
 				</ul>
-	</form>
+				<img id="animate" class="con" src="logo/Zlogo.png">
 </div>
 
 	<div class="col-sm-4" >
@@ -58,8 +69,8 @@
 			<label id="titulo">Comentarios:</label>
 		
 		<form>
-			<input type="email" class="form-control" placeholder="Email">
-			<input type="text"  class="form-control" placeholder="Comentario" style="height: 70px" >
+			<input type="email" class="form-control" placeholder="Email"><br>
+			<input type="text"  class="form-control" placeholder="Comentario" style="height: 70px"><br>
 			<input class="btn btn-primary" type="submit" value="Enviar">
 		</form>
 
@@ -78,3 +89,4 @@
 </div>
 
 </footer>
+<div style="clear: both;"></div>

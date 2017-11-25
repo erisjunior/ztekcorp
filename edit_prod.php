@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width-device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap_s.min.css">
-	<title>Edição de Produto</title>
-	<meta charset="utf-8">
-
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body style="margin-left: 10px; margin-right: 10px" class="content">
+<body>
 <div class="row"><div class="col-sm-12">
 	<?php
 

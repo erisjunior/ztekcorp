@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cadastrar-se</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap_s.min.css">
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/jquery.maskedinput.js" type="text/javascript"></script>
 	<script type="text/javascript">

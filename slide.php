@@ -1,3 +1,7 @@
+<head>
+	
+</head>
+
 <div class="row" style="background-color:; height: 400px;">
 	<div class="col-sm-12">
 		<div class="w3-content w3-section">

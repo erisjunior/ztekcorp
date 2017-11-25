@@ -3,14 +3,6 @@
 <html>
 <head>
 
-<meta charset="utf-8">
-	<title>Gerenciador de Produtos</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-
-<link rel="stylesheet" type="text/css" href="css/bootstrap_s.min.css">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 
 	
 		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
