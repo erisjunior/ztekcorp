@@ -37,6 +37,7 @@
 		<input class="form-control btn btn-primary" type="submit" name="enviar" value="Cadastrar">
 		</fieldset>
 	</form>
+	<br>
 	<?php
 
 	if (isset($_POST['enviar'])) {

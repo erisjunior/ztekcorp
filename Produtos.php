@@ -27,22 +27,77 @@
 				background-color:rgba(0,0,0,.5);
 				transition: 1s; }
 
-	
+
 	.col-md-12{float: right;}
 </style>
 <body>
+<br><!-- 
+<?php
+	include('slide.php');
+?> -->
+<div class='container'>
 
+	<div class="row">
+		<div class="col-sm-12">
+			<?php
+				if(isset($_GET['busca'])){
+					echo "<h3>Buscando por: <i>".$_GET['busca']."</i></h3>";
+				}
 
-		
-<?php 
-	
-	$registros = 3;
+				$cat="";
 
-	if(isset($_GET['cat'])){
-		$sql = "SELECT * FROM produto WHERE categoria='".$_GET['cat']."'";
-	}else{
-		$sql = "SELECT * FROM produto";
+				if (isset($_GET['cat'])) {
+					$cat = $_GET['cat'];
+				}
+			?>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<form method='get' action='index.php?' class='form-inline'>
+				<select class="form-control" name="filtro">
+					<option value="view DESC">Mais Relevantes</option>
+					<option value="preco DESC">Maior Preço</option>
+					<option value="preco ASC">Menor Preço</option>
+					<option value="nome ASC">A-Z</option>
+					<option value="nome DESC">Z-A</option>
+				</select>
+
+			    <div class="form-group" style="box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+		            <input type="text" class="form-control" name="busca" placeholder="Search...">
+					<input type="hidden" name="cat" value="<?php echo $cat;?>">
+
+		            <button type="submit" class=" btn btn-primary">
+		            	<span class="fa fa-search"></span>
+		            </button>
+		        </div>
+		    </form>
+		</div>
+    </div>
+
+<?php
+	$registros = 8;
+
+	$where="";
+
+	if (isset($_GET['cat']) && $_GET['cat'] !="") {
+		$where = " WHERE categoria='".$_GET['cat']."'";
+		if (isset($_GET['busca'])) {
+			$where .= " AND nome LIKE '%".$_GET['busca']."%'";
+		}
+	}else if (isset($_GET['busca'])) {
+		$where .= " WHERE nome LIKE '%".$_GET['busca']."%'";
 	}
+
+	if(isset($_GET['filtro'])){
+		$where .= " ORDER BY ".$_GET['filtro'];
+	}else{
+		$where .= " ORDER BY view DESC";
+	}
+
+	$sql = "SELECT * FROM produto".$where;
+
 	$query = mysqli_query($con, $sql);
 
 	if (isset($_GET['pagina'])) {
@@ -54,20 +109,15 @@
 	$resultados = mysqli_num_rows($query);
 
 	$inicial = ($registros*$pagina)-$registros;
-	$numPaginas = ceil($resultados / $registros); 
+	$numPaginas = ceil($resultados / $registros);
 
-	if (isset($_GET['cat'])) {
-		$sql = "SELECT * FROM produto WHERE categoria='".$_GET['cat']."' LIMIT $inicial, $registros";
-	}else{
-		$sql = "SELECT * FROM produto LIMIT $inicial, $registros";
-	}
+	$sql = "SELECT * FROM produto ".$where." LIMIT $inicial, $registros";
 
 	$query = mysqli_query($con, $sql);
-	
 
-	echo "<div class='container'><div class='row'>";
+	echo "<div class='row'>";
 
-	while ($dados = mysqli_fetch_assoc($query)) { 
+	while ($dados = mysqli_fetch_assoc($query)) {
 		echo "<div class='col-sm-2.5' id='produtos'>";
 		echo "<img id='prod' src='imgProd/".$dados['image']."'>";
 		echo "<h5>".$dados['nome']."</h5>";
@@ -80,23 +130,31 @@
 	echo "</div>";
 
 echo "<center><ul class ='pagination'>";
-	
+
+
+		$cat="";
 		if (isset($_GET['cat'])) {
-			$cat = "cat=".$_GET['cat'];
-		}else{
-			$cat="";
+			$cat .= "cat=".$_GET['cat'];
+			if (isset($_GET['busca'])) {
+				$cat .= "&busca=".$_GET['busca'];
+			}
+		}else if (isset($_GET['busca'])) {
+			$cat .= "busca=".$_GET['busca'];
+		}
+
+		if(isset($_GET['filtro'])){
+			$cat .= "&filtro=".$_GET['filtro'];
 		}
 
 		if ($pagina > 1) {
 			echo "<li><a href='?".$cat."&pagina=".($_GET['pagina'] - 1)."'>&laquo</a></li>";
 		}
-		for ($i=1; $i < $numPaginas + 1 ; $i++) { 
+		for ($i=1; $i < $numPaginas + 1 ; $i++) {
 			if ($pagina == $i) {
 				echo "<li class='active'><a href='?".$cat."&pagina=".$i."'>$i</a></li>";
 			}else{
 				echo "<li><a href='?".$cat."&pagina=".$i."'>$i</a></li>";
 			}
-			
 		}
 
 		 if ($numPaginas > $pagina) {

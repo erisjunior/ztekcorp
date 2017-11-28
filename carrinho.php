@@ -1,4 +1,8 @@
 <?php
+if (isset($_GET['nao'])) {
+	echo "<script>alert('Faça o login')</script>";
+}
+
 error_reporting(0);
 
 if(isset($_GET['acao'])){
@@ -39,29 +43,18 @@ if($_GET['acao'] == "up"){
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Carrinho</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Latest compiled and minified CSS -->
-	<style type="text/css">
-		td a {
-			color: red;
-			 text-align: center; font: 18px Arial; font-weight: bold; text-decoration: none;}
-		th {color:white;}
-	    input { text-align: center }
-	</style>
-</head>
 <body>
 <br>
 <div class="container">
 <form action="?pag=carrinho&acao=up" method="post">
+<div class="table-responsive">
 <table align='center' cellpadding="10" class="table table-striped">
-	<thead bgcolor="red">
-		<th>Produto</th>
-		<th>Quantidade</th>
-		<th>Preço Un</th>
-		<th>Preço Total</th>
-		<th>Ação</th>
+	<thead>
+		<th class='danger'>Produto</th>
+		<th class='danger'>Quantidade</th>
+		<th class='danger'>Preço Un</th>
+		<th class='danger'>Preço Total</th>
+		<th class='danger'>Ação</th>
 	</thead>
 	<tbody>
 		<?php
@@ -85,41 +78,48 @@ if($_GET['acao'] == "up"){
 			$total = $preco * $qnt;
 			echo "<tr>
 			<td>$nome</td>
-			<td><input name='produto[".$id."]' type='text' size='2' value='".$qnt."'></td>
+			<td><input name='produto[".$id."]' type='text' size='1' value='".$qnt."'></td>
 			<td>R$ ".number_format($preco,2,',','.')."</td>
 			<td>R$ ".number_format($total,2,',','.')."</td>
-			<td align='center'><a href='?pag=carrinho&acao=del&id=".$id."'>
+			<td><a href='?pag=carrinho&acao=del&id=".$id."'>
 			<button type='button' class='btn btn-default'>
-				<span class='glyphicon glyphicon-trash'> Excluir</span>
-			</button> 
+				<span class='fa fa-trash'></span> Excluir
+			</button>
 			</a></td>
 			</tr>";
 			$ttotal += $total;
 
-		}		
+		}
 		}
 
 		?>
 	</tbody>
 	<tfoot>
 		<tr>
-			<td  colspan="2"><input style="width: 100%; font-weight: bold" type="submit" value="Atualizar pedidos"/></td>
+			<td  colspan="2"><input class='btn btn-sm btn-primary' style="width: 100%; font-weight: bold" type="submit" value="Atualizar pedidos"/></td>
 			<td>Total: </td>
 			<td>
 			R$ <?php echo number_format($ttotal,2,',','.');?>
 			</td>
+			<td></td>
 		</tr>
 		<tr>
-		<td><a href="index.php">Continuar Comprando</a></td>
-		<td><a href="checkout.php">Finalizar Pedido</a></td>
+		<td><a class='btn btn-danger' href="index.php">Continuar Comprando</a></td>
+		<?php
+			if (isset($_SESSION['user'])) {
+				echo "<td><a class='btn btn-danger' href='index.php?pag=checkout'>Finalizar Pedido</a></td>";
+			}else{
+				echo "<td class='text text-danger'>Faça login para finalizar a compra</td>";
+			}
+		?>
+		<td></td>
+		<td></td>
+		<td></td>
 		</tr>
 	</tfoot>
 </table>
+</div>
 </form>
 </div>
 </body>
 </html>
-
-
-
-

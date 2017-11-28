@@ -2,12 +2,9 @@
 	
 </head>
 
-<div class="row" style="background-color:; height: 400px;">
+<div class="row" style="height: 400px; width: 100%">
 	<div class="col-sm-12">
-		<div class="w3-content w3-section">
-			<img class="mySlides img" src="img/vialactea.png">
-			<img class="mySlides img" src="Logo/LogoFi.png">
-		</div>
+			<img class="mySlides img img-thumbnail img-responsive" style="width: 100%;height: 400px" src="img/black-friday.png">
 	</div>
 </div>
 </body>

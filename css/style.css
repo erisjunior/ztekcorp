@@ -30,16 +30,16 @@ a:hover, a:visited{
 }
 
 .dropdown-content{display: none; position: absolute; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; padding: 15px;}
-.dropdown:hover .dropdown-content {display: block;}
-.dropdown input{text-align: center;}
-.dropdown form{text-align: center;margin-top: 30px;}
+.dropdown-content:hover .dropdown-content {display: block;}
+.dropdown-content input{text-align: center;}
+.dropdown-content form{text-align: center;margin-top: 30px;}
 /**{font-family: 'Montserrat', cursive;}*/
 img{width: 200px;margin-top: 20px;margin: auto;display: block;}
-.dropdown input[type="text"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; border-radius: 3px;}
-.dropdown input[type="password"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; margin-top: 10px;border-radius: 3px;}
-.dropdown input[type="submit"]{margin-top: 20px;}
-.dropdown h2{text-align: center;}
-.dropdown label{margin-top: 20px; }
+.dropdown-content input[type="text"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; border-radius: 3px;}
+.dropdown-content input[type="password"]{border: 1px solid #CCC;width: 250px; height: 25px; padding-left: 10px; margin-top: 10px;border-radius: 3px;}
+.dropdown-content input[type="submit"]{margin-top: 20px;}
+.dropdown-content h2{text-align: center;}
+.dropdown-content label{margin-top: 20px; }
 div #desceu{
     border-radius: 2px;
 }
@@ -50,7 +50,7 @@ div #desceu{
 
 #ul li{
 	display: inline-block;
-	background-color: rgba(0, 0, 0, .4);
+	background-color: rgba(0, 0, 0, .6);
 	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -60,7 +60,7 @@ div #desceu{
 #ul li:hover{
 	transform: translateY(-3px);
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
-	background-color: rgba(0, 0, 0, .6);
+	background-color: rgba(0, 0, 0, .7);
 	transition: 1s;
 }
 

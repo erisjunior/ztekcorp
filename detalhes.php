@@ -105,7 +105,7 @@
 		<div class="row">
 			<div class="col-md-5">
 				<a href="imgProd/'.$dados['image'].'" data-lightbox="roadtrip">
-					<img style="border-radius:5px;" id="zoom" class="img img-responsive" src="imgProd/'.$dados['image'].'" data-zoom-image="imgProd/'.$dados['image'].'"/>
+					<img style="border-radius:5px; width:300px; max-height:300px" id="zoom" class="img img-responsive" src="imgProd/'.$dados['image'].'" data-zoom-image="imgProd/'.$dados['image'].'"/>
 				</a>
 			</div>
 			<div class="col-md-7">
@@ -141,13 +141,13 @@
 					 		<div class="col-md-6">
 					 			<input id="pac" type="radio" value="41106" name="tipo">
 					 			<label for="pac">
-					 			<img src="images/pac.png" alt="pac" />
+					 			<img src="img/pac.png" alt="pac" />
 					 			</label>
 					 		</div>
 					 		<div class="col-md-6">
 					 			<input id="sedex" type="radio" value="40010" name="tipo">
 					 			<label for="sedex">
-					 			<img src="images/sedex.png" alt="sedex" />
+					 			<img src="img/sedex.png" alt="sedex" />
 					 			</label>
 					 		</div>
 					 		</div>
@@ -191,6 +191,7 @@
 			else{
 				echo "<div class='alert alert-success'>Informe o CEP para calcular o valor do <b>frete</b>!</div>";
 			}
+		$detalhes = $dados['detalhes'];
 	}
 	echo '</div>
 		  </div>';
@@ -243,8 +244,9 @@
 
 	<div class="row">
 		<div class="col-md-12 text-left">
-			<h5>Fabricante: {Fabricante}</h5>
-			<h5>Modelo: {Modelo}</h5><p>
+			<?php
+				echo $detalhes;
+			?>
 		</div>
 	</div>
 	
