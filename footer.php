@@ -71,7 +71,7 @@
 					<a class="btn btn-primary fa fa-phone" onclick="mudaRede('+55 (84) 9.9466-1363')"></a>
 				</ul>
 				<div id="rede"></div><br>
-				<img id="animate" class="con" src="img/Zlogo.png">
+				<img id="animate" class="con" src="img/ZLogo.png">
 		</div>
 
 		<div class="col-sm-4" >

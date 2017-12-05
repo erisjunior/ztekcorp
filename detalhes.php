@@ -177,12 +177,16 @@
 					}
 
 					$val = (CalcFrete($tipo, $cep));
-					echo "<div class='alert alert-success'>";
-						echo '<span>Serviço: '.$servico.'</span><br>';
-						echo '<span>Valor: R$ '.$val->Valor.'</span><br>';
-						echo "Prazo: ".$val->PrazoEntrega." dias";
-						unset($_POST);
-					echo "</div>";
+					if($val->Valor>0){
+    					echo "<div class='alert alert-success'>";
+    						echo '<span>Serviço: '.$servico.'</span><br>';
+    						echo '<span>Valor: R$ '.$val->Valor.'</span><br>';
+    						echo "Prazo: ".$val->PrazoEntrega." dias";
+    						unset($_POST);
+    					echo "</div>";
+					}else{
+					    echo "<div class='alert alert-success'>ERRO!</div>";
+					}
 				}else{
 					echo "<div class='alert alert-success'>Selecione o <b>serviço</b>!</div>";
 				}
@@ -222,13 +226,15 @@
 	}
 
 	if(isset($_GET['comenta'])){
-		$n = $_POST['nome'];
-		$e = $_POST['email'];
-		$m = $_POST['msg'];
-
-	//Comentou...
-	$sql = "INSERT INTO comentarios (nome, email, msg, prod_id) VALUES ('".$n."', '".$e."', '".$m."', '".$id."')";
-	$query = mysqli_query($con, $sql);
+	    if($_POST){
+    		$n = $_POST['nome'];
+    		$e = $_POST['email'];
+    		$m = $_POST['msg'];
+    
+        	//Comentou...
+        	$sql = "INSERT INTO comentarios (nome, email, msg, prod_id) VALUES ('".$n."', '".$e."', '".$m."', '".$id."')";
+        	$query = mysqli_query($con, $sql);
+	    }
 	}
 
 	$sql_com = "SELECT * FROM comentarios WHERE prod_id = '$id'";

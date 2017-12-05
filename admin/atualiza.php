@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-sm-6">
 			 <?php
-			$us = $_SESSION['user'];
+			$us = $_SESSION['admin'];
 
 			$sql = "SELECT * FROM admin WHERE login ='".$us."'";
 			$query = mysqli_query($con, $sql);
@@ -17,7 +17,7 @@
 				if (isset($acao)) {
 					if ($acao == "up") {
 						$nome = $_POST['nome'];
-						$user = $_POST['user'];
+						$user = $_POST['login'];
 						$email = $_POST['email'];
 						$pass = $dados['senha'];
 					}else if ($acao == "pass") {
@@ -38,7 +38,7 @@
 					<label>Nome</label>
 					<input class='form-control' type='text' name='nome' value='".$nome."'>
 					<label>Usuario</label>
-					<input class='form-control' type='text' name='user' value='".$user."'>
+					<input class='form-control' type='text' name='login' value='".$user."'>
 
 					<label>Email</label>
 					<input class='form-control' type='email' name='email' value='".$email."'>
@@ -71,11 +71,10 @@
 				$sql = "UPDATE admin SET nome ='".$nome."', login ='".$user."', email ='".$email."' WHERE login='$us'";
 
 				$query = mysqli_query($con,$sql);
-				header("location: index.php"); 
 
 			}else if ($acao == "pass") {
 
-				if ($_POST['passv'] == $_SESSION['senha']) {
+				if (md5(base64_encode($_POST['passv'])) == $_SESSION['passadmin']) {
 		
 					$sql = "UPDATE admin SET senha ='".md5(base64_encode($pass))."' WHERE login='$us'";
 
@@ -87,7 +86,6 @@
 						echo "<script>confirm('Mudanças realizadas com sucesso');</script>";
 					}
 
-					header("Location: index.php");
 
 				}else{
 					echo "<script>alert('Velha Senha Incorreta')</script>";

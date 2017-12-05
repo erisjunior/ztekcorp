@@ -29,7 +29,7 @@
 <div class="container"><br>
 	<div class="row">
 		<div class="col-sm-6">
-			 <?php
+			<?php
 			$us = $_SESSION['user'];
 
 			$sql = "SELECT * FROM usuario WHERE user ='".$us."'";
@@ -38,7 +38,7 @@
 			if (isset($_GET['acao'])){
 				$acao = $_GET['acao'];
 			}
-
+		    
 			while($dados = mysqli_fetch_assoc($query)){
 
 				if (isset($acao)) {
@@ -47,37 +47,69 @@
 						$user = $_POST['user'];
 						$email = $_POST['email'];
 						$pass = $dados['senha'];
+						$image = $dados['image'];
 					}else if ($acao == "pass") {
 						$pass = $_POST['pass'];
 						$nome = $dados['nome'];
 						$user = $dados['user'];
 						$email = $dados['email'];
+						$image = $dados['image'];
+					}else if($acao=="image"){
+					    $pass = $dados['senha'];
+						$nome = $dados['nome'];
+						$user = $dados['user'];
+						$email = $dados['email'];
+						$image = $dados['image'];
 					}
 				}else{
 					$nome = $dados['nome'];
 					$user = $dados['user'];
 					$pass = $dados['senha'];
 					$email = $dados['email'];
+					$image = $dados['image'];
 				}
+			}
 
-				if (isset($_FILES['file'])) {
-					$dir = "images/";
-					$ext = strtolower(substr($_FILES['file']['name'], -4));
-					$image = md5(microtime()).$ext;
-					$tam = $_FILES['file']['size'];
-					$tam =ceil(($tam / 1024) / 1024);
+				if(isset($acao)) {
+			        
 
-					if($tam < 2){
-						if($ext == ".jpg" || $ext == ".png" || $ext == ".bmp" || $ext == ".gif"){
-							if(move_uploaded_file($_FILES['file']['tmp_name'], $dir.$image)){
-								$sqll = "UPDATE usuario SET image='".$image."' WHERE user ='".$us."'";
-
-								$queryy = mysqli_query($con,$sqll);
-							}
-						}
-					}
-				}else{
-					$image =$dados['image'];
+    			        if ($acao == "up") {
+    
+    
+        				    $sql = "UPDATE usuario SET nome ='".$nome."', user ='".$user."', email ='".$email."' WHERE user='$us'";
+        
+        				    $query = mysqli_query($con,$sql);
+        
+        			    }else if ($acao == "pass") {
+        
+        				    if ($_POST['passv'] == $_SESSION['senha']) {
+        
+        				    	$sql = "UPDATE usuario SET senha ='".md5(base64_encode($pass))."' WHERE user='$us'";
+        
+        				    	$query = mysqli_query($con,$sql);
+        
+        				    }else{
+        				    	echo "<script>alert('Velha Senha Incorreta')</script>";
+        			    	}
+    
+    			        }else if($acao == "image"){
+    			            $dir = "images/";
+        					$ext = strtolower(substr($_FILES['file']['name'], -4));
+        					$image = md5(microtime()).$ext;
+        					$tam = $_FILES['file']['size'];
+        					$tam =ceil(($tam / 1024) / 1024);
+        
+        					if($tam < 2){
+        						if($ext == ".jpg" || $ext == ".png" || $ext == ".bmp" || $ext == ".gif"){
+        							if(move_uploaded_file($_FILES['file']['tmp_name'], $dir.$image)){
+        								$sqll = "UPDATE usuario SET image='".$image."' WHERE user ='".$us."'";
+        
+        								$queryy = mysqli_query($con,$sqll);
+        							}
+        						}
+        					}
+    			        }
+		            
 				}
 
 				echo "<form action='?pag=perfil_cliente&&acao=up' method='post'>
@@ -118,7 +150,7 @@
 					<br>
 					<img class='center-block img img-responsive img-thumbnail' style='width:300px;height:300px;border-radius:100%' src='images/".$image."'><br>
 					<center>
-						<form class='form-inline' method='post' enctype='multipart/form-data'>
+						<form action='?pag=perfil_cliente&&acao=image' class='form-inline' method='post' enctype='multipart/form-data'>
 							<input class='form-control' type='file' name='file' required>
 							<input class='form-control input-group-addon' type='submit'>
 						</form>
@@ -127,39 +159,7 @@
 
 				";
 
-			}
-
-			if (isset($acao)) {
-
-			if ($acao == "up") {
-
-
-				$sql = "UPDATE usuario SET nome ='".$nome."', user ='".$user."', email ='".$email."' WHERE user='$us'";
-
-				$query = mysqli_query($con,$sql);
-
-			}else if ($acao == "pass") {
-
-				if ($_POST['passv'] == $_SESSION['senha']) {
-
-					$sql = "UPDATE usuario SET senha ='".md5(base64_encode($pass))."' WHERE user='$us'";
-
-					$query = mysqli_query($con,$sql);
-
-					if (!$query) {
-						echo "<script>alert('Erro ao cadastrar')</script>";
-					}else{
-						echo "<script>confirm('Mudanças realizadas com sucesso');</script>";
-					}
-
-					header("Location: index.php");
-
-				}else{
-					echo "<script>alert('Velha Senha Incorreta')</script>";
-				}
-
-			}
-		}
+		
 		?>
 	</div>
 

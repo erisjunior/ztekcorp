@@ -115,17 +115,7 @@ if (isset($_POST['entrar'])) {
 		            			</div>
 		        		";
 					}
-
-				if(isset($_POST['sair'])){
-					unset($_SESSION['user']);
-					header('location:index.php');
-				}else if(isset($_POST['perfil'])){
-					$_SESSION['user'];
-					header('location:index.php?pag=perfil_cliente');
-				}
-
-
-		        ?>
+				?>
 		    </div>
 		    <div class="col-sm-1 desce">
 				<a href="index.php?pag=carrinho">

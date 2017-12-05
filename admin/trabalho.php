@@ -21,7 +21,6 @@
 <?php
 
 if (isset($_POST['enviar'])) {
-	require('../conexao.php');
 
 	$nome = $_POST['nome'];
 	$cpf = $_POST['cpf'];
@@ -38,7 +37,7 @@ $query = mysqli_query($con, $sql);
 $boolean = True;
 
 while ($dados = mysqli_fetch_assoc($query)) {
-	if ($dados['user'] == $user) {
+	if ($dados['login'] == $user) {
 		echo "<script>alert('Administrador ja existe')</script>";
 		$boolean = False;
 	}

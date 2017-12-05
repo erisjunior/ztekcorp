@@ -1,16 +1,40 @@
 <?php
-	require('../conexao.php');
+    require('../conexao.php');
+    session_start();
 
-	session_start();
+    if(isset($_POST['user'])){
+        $user = $_POST['user'];
+        $pas = $_POST['pass'];
+        $pass = md5(base64_encode($pas));
+    
+        $sql = "SELECT * FROM admin WHERE login ='$user' AND senha = '$pass'";
+        $query = mysqli_query($con, $sql);
+        
+        if(mysqli_num_rows($query) > 0) {
+        
+        	while ($dados = mysqli_fetch_assoc($query)) {
+        		$_SESSION['idadmin'] = $dados['id'];
+        		$_SESSION['admin']=$dados['login'];
+            	$_SESSION['passadmin']=$dados['senha'];
+        	}
+        }
+        else{
+        
+        	unset($_SESSION['admin']);
+        	header('location:login.php');
+        
+        }
+    }
 
-	if (isset($_SESSION['user'])) {
-		$logado = $_SESSION['user'];
+	if(isset($_SESSION['admin'])) {
+		$logado = $_SESSION['admin'];
 	}else{
-		header('location:../login.php');
+	    unset($_SESSION['admin']);
+		header('location:login.php');
 	}
 
 	if (isset($_GET['sair'])) {
-		unset($_SESSION['user']);
+		unset($_SESSION['admin']);
 		header("Location: index.php");
 
 	}
@@ -23,7 +47,7 @@
 	<title>Área de Administrador</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width-device-width, initial-scale=1">
-	<!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap_s.min.css"> -->
+	 <link rel="stylesheet" type="text/css" href="../css/bootstrap_s.min.css"> 
 	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-RpX8okQqCyUNG7PlOYNybyJXYTtGQH+7rIKiVvg1DLg6jahLEk47VvpUyS+E2/uJ" crossorigin="anonymous">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -70,37 +94,5 @@
 
 		?>
 	</div>
-	<!-- <div id="header">
-
-			<div class="top">
-
-				<div id="logo">
-					<span class="image avatar48"><img src="images/avatar.jpg"/></span>
-					<h1 id="title">Jane Doe</h1>
-					<p>Hyperspace Engineer</p>
-				</div>
-
-				<nav id="nav">
-					<ul>
-						<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="fa fa-home">Intro</span></a></li>
-						<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="fa fa-th">Portfolio</span></a></li>
-						<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="fa fa-user">About Me</span></a></li>
-						<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="fa fa-envelope">Contact</span></a></li>
-					</ul>
-				</nav>
-
-			</div>
-
-			<div class="bottom">
-
-				<ul class="icons">
-					<li><a href="#" class="fa fa-youtube"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="fa fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="fa fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-
-			</div>
-
-		</div> -->
 </body>
 </html>

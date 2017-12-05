@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    
+    if(isset($_POST['sair'])){
+		unset($_SESSION['user']);
+		header('location:index.php');
+	}else if(isset($_POST['perfil'])){
+		$_SESSION['user'];
+		header('location:index.php?pag=perfil_cliente');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,11 +26,9 @@
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 
 </head>
-<body>
+<body class='fadeIn'>
 
 <?php
-
-	session_start();
 
 	require('conexao.php');
 

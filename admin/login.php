@@ -20,7 +20,7 @@
 
 			<h4>Login</h4>
 
-			<form action="vlogin.php" method="post">
+			<form action="index.php" method="post">
 			<label>Usuário</label>
 			<input class="form-control" type="text" name="user">
 
@@ -28,8 +28,6 @@
 			<input class="form-control" type="password" name="pass">
 
 			<input style="margin-top: 15px" class="form-control btn btn-primary" type="submit" value="Login">
-
-			<a style="margin-top: 15px" class="btn btn-primary form-control" href="?acao=recup_senha">Recuperar Senha</a>
 
 			<a style="margin-top: 30px" class="btn btn-primary form-control" href="index.php">Voltar ao inicio</a>
 
